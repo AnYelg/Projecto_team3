@@ -1,3 +1,5 @@
+# Ivan Rodriguez, Andrea Yela, Salomon Dabbah
+
 """Snake, classic arcade game.
 
 Exercises
