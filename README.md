@@ -14,7 +14,7 @@
 	* Cuando te salgas del límite aparece una frase "END" para finalizar el juego.  
 	
 2. Ivan Rodriguez:
-	*En Cannon agregué el score.
-	*Hice el juego mas dificl cambiando el tamanio de los objetivos.
-	*En snake cree nuevos colores para la serpiente y las frutas.
-	*Ahora la serpiente se puede mover con las teclas "W","A","S","D"
+	* En Cannon agregué el score.
+	* Hice el juego mas dificl cambiando el tamanio de los objetivos.
+	* En snake cree nuevos colores para la serpiente y las frutas.
+	* Ahora la serpiente se puede mover con las teclas "W","A","S","D"
