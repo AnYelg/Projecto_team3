@@ -5,8 +5,8 @@
 
 
 
-#Cambios a los códigos:
+# Cambios a los códigos:
 
--Andrea:
- -En cannon se cambio la velocidad para que el proyectil pudiera moverse más rápido.
- -Los "meteoros" ahora cambian de colores en vez de solo ser azul.  
+-Andrea: :sparkles:
+ *En cannon se cambio la velocidad para que el proyectil pudiera moverse más rápido.
+ *Los "meteoros" ahora cambian de colores en vez de solo ser azul.  
