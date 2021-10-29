@@ -1,3 +1,5 @@
+#Ivan Rodriguez, Andrea Yela, Salomon Dabbah
+
 """Cannon, hitting targets with projectiles.
 
 Exercises
