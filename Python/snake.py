@@ -15,9 +15,12 @@ from turtle import *
 from random import randrange
 from freegames import square, vector
 
+
 food = vector(0, 0)
-snake = [vector(10, 0)]
+snake = [vector(8, 0)]
 aim = vector(0, -10)
+writer = Turtle(visible = False)
+style = ('Courier', 30, 'bold')
 
 def change(x, y):
     "Change snake direction."
@@ -35,8 +38,12 @@ def move():
 
     if not inside(head) or head in snake:
         square(head.x, head.y, 9, 'red')
+        writer.undo()
+        writer.write('END', font = style, align = 'center')
         update()
+        clear()
         return
+        
 
     snake.append(head)
 
@@ -44,6 +51,7 @@ def move():
         print('Snake:', len(snake))
         food.x = randrange(-15, 15) * 10
         food.y = randrange(-15, 15) * 10
+
     else:
         snake.pop(0)
 
