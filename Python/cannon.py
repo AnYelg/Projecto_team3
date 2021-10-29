@@ -14,18 +14,20 @@ Exercises
 from random import randrange
 from turtle import *
 from freegames import vector
+import random
 
 ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
+colors = ['orange','blue','green','pink','purple']
 
 def tap(x, y):
     "Respond to screen tap."
     if not inside(ball):
         ball.x = -199
         ball.y = -199
-        speed.x = (x + 200) / 25
-        speed.y = (y + 200) / 25
+        speed.x = (x + 300) / 25
+        speed.y = (y + 300) / 25
 
 def inside(xy):
     "Return True if xy within screen."
@@ -37,7 +39,7 @@ def draw():
 
     for target in targets:
         goto(target.x, target.y)
-        dot(20, 'blue')
+        dot(20, random.choice(colors))
 
     if inside(ball):
         goto(ball.x, ball.y)
@@ -59,7 +61,7 @@ def move():
 
     # Move the cannon shot
     if inside(ball):
-        speed.y -= 0.35
+        speed.y -= 0.18 #Nueva velocidad
         ball.move(speed)
 
     # Make a copy of the existing target list before redrawing
