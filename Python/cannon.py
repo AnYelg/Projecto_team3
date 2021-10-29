@@ -20,6 +20,9 @@ ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
 colors = ['orange','blue','green','pink','purple']
+global  score
+score = 0
+writer = Turtle(visible=False)
 
 def tap(x, y):
     "Respond to screen tap."
@@ -39,7 +42,7 @@ def draw():
 
     for target in targets:
         goto(target.x, target.y)
-        dot(20, random.choice(colors))
+        dot(16, random.choice(colors))
 
     if inside(ball):
         goto(ball.x, ball.y)
@@ -49,6 +52,9 @@ def draw():
 
 def move():
     "Move ball and targets."
+    global score
+    writer.undo()
+    writer.write(score)
     # Generate a new target at random times
     if randrange(40) == 0:
         y = randrange(-150, 150)
@@ -72,6 +78,11 @@ def move():
     for target in dupe:
         if abs(target - ball) > 13:
             targets.append(target)
+        else:
+            value = round((target.y+160)/2)
+            score += value
+            print(f"Score + {value}")
+            print(f"New score: {score}")
 
     draw()
 
@@ -84,9 +95,11 @@ def move():
     ontimer(move, 50)
 
 setup(420, 420, 370, 0)
+print(f"Your score is: {score}")
 hideturtle()
 up()
 tracer(False)
+writer.write(score)
 onscreenclick(tap)
 move()
 done()

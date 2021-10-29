@@ -12,7 +12,7 @@ Exercises
 """
 
 from turtle import *
-from random import randrange
+from random import randrange, choice
 from freegames import square, vector
 
 
@@ -21,6 +21,15 @@ snake = [vector(8, 0)]
 aim = vector(0, -10)
 writer = Turtle(visible = False)
 style = ('Courier', 30, 'bold')
+
+def SnakeFruitColor():
+    PosibleColors = ['black','green','blue','yellow']
+    snakeColor = choice(PosibleColors)
+    fruitColor = choice(PosibleColors)
+    if fruitColor == snakeColor:
+        while fruitColor == snakeColor:
+            fruitColor = choice(colorOptions)
+    return snakeColor,fruitColor
 
 def change(x, y):
     "Change snake direction."
@@ -33,13 +42,14 @@ def inside(head):
 
 def move():
     "Move snake forward one segment."
+    color=colors
     head = snake[-1].copy()
     head.move(aim)
 
     if not inside(head) or head in snake:
         square(head.x, head.y, 9, 'red')
         writer.undo()
-        writer.write('END', font = style, align = 'center')
+        writer.write('Game Over', font = style, align = 'center')
         update()
         clear()
         return
@@ -58,19 +68,25 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, color[0])
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, color[1])
     update()
     ontimer(move, 100)
 
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
+global colors
+colors = SnakeFruitColor()
 listen()
 onkey(lambda: change(10, 0), 'Right')
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
+onkey(lambda: change(10, 0), 'd')
+onkey(lambda: change(-10, 0), 'a')
+onkey(lambda: change(0,10), 'w')
+onkey(lambda: change(0, -10), 's')
 move()
 done()
