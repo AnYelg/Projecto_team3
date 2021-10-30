@@ -15,7 +15,7 @@
 	
 2. Ivan Rodriguez:
 	* En Cannon agregué el score.
-	* Hice el juego mas dificl cambiando el tamanio de los objetivos.
+	* Hice el juego mas dificl cambiando el tamaño de los objetivos.
 	* En snake cree nuevos colores para la serpiente y las frutas.
 	* Ahora la serpiente se puede mover con las teclas "W","A","S","D"
 	* Video: https://youtu.be/3w_n5eceDdE
