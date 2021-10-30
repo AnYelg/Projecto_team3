@@ -22,6 +22,7 @@ aim = vector(0, -10)
 writer = Turtle(visible = False)
 style = ('Courier', 30, 'bold')
 
+
 def SnakeFruitColor():
     PosibleColors = ['black','green','blue','yellow']
     snakeColor = choice(PosibleColors)
@@ -40,6 +41,12 @@ def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
 
+
+def show():
+    writer.undo()
+    writer.write('Game Over', font = style, align = 'center')
+    clear()
+
 def move():
     "Move snake forward one segment."
     color=colors
@@ -48,10 +55,9 @@ def move():
 
     if not inside(head) or head in snake:
         square(head.x, head.y, 9, 'red')
-        writer.undo()
-        writer.write('Game Over', font = style, align = 'center')
+        show()
         update()
-        clear()
+        
         return
         
 
@@ -74,19 +80,23 @@ def move():
     update()
     ontimer(move, 100)
 
-setup(420, 420, 370, 0)
-hideturtle()
-tracer(False)
-global colors
-colors = SnakeFruitColor()
-listen()
-onkey(lambda: change(10, 0), 'Right')
-onkey(lambda: change(-10, 0), 'Left')
-onkey(lambda: change(0, 10), 'Up')
-onkey(lambda: change(0, -10), 'Down')
-onkey(lambda: change(10, 0), 'd')
-onkey(lambda: change(-10, 0), 'a')
-onkey(lambda: change(0,10), 'w')
-onkey(lambda: change(0, -10), 's')
-move()
-done()
+def main(): 
+    setup(420, 420, 370, 0)
+    hideturtle()
+    tracer(False)
+    global colors
+    colors = SnakeFruitColor()
+    listen()
+    onkey(lambda: change(10, 0), 'Right')
+    onkey(lambda: change(-10, 0), 'Left')
+    onkey(lambda: change(0, 10), 'Up')
+    onkey(lambda: change(0, -10), 'Down')
+    onkey(lambda: change(10, 0), 'd')
+    onkey(lambda: change(-10, 0), 'a')
+    onkey(lambda: change(0,10), 'w')
+    onkey(lambda: change(0, -10), 's')
+    move()
+    done()
+
+
+main()
